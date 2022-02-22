@@ -22,7 +22,21 @@ const Add = () => {
 
   const saveDataForm = () => {
     console.log('saveDataForm', formData.form_data);
-    dispatch(getData(formData.form_data))
+    if (formData.form_data !== undefined) {
+      dispatch(getData(formData.form_data))
+    }
+    else{
+      console.log('data is undefined')
+    }
+  }
+
+  const previewForm = () => {
+    if (formData.form_data !== undefined) {
+      console.log('previewForm');
+    }
+    else{
+      console.log('data is undefined')
+    }
   }
 
   return (
@@ -32,6 +46,12 @@ const Add = () => {
           onClick={saveDataForm}
         >
           Save Form
+        </button>
+        <button className="btn btn-primary float-left" 
+          style={{marginLeft: '10px'}}
+          onClick={previewForm}
+        >
+          Preview Form
         </button>
       </div>
       <div className='app_body'>

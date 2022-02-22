@@ -91,7 +91,7 @@ export const saveFormBuilder = formData => (dispatch) => {
     (response) => {
       dispatch({
         type: GET_DATA_FORM_BUILDER,
-        payload: response.data,
+        payload: {data: response},
       })
       return Promise.resolve();
     },

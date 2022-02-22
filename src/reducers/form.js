@@ -7,7 +7,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_DATA_FORM_BUILDER:
-      return { data: payload };
+      return { ...state, data: payload.data };
     default:
       return state;
   }
