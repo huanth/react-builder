@@ -33,8 +33,17 @@ const logout = () => {
   localStorage.removeItem("user");
 };
 
+const saveFormBuilder = async (data) => {
+  const response = await axiosClient
+    .post("/builder/data", {
+      data
+    });
+  return response.data;
+};
+
 export default {
   register,
   login,
   logout,
+  saveFormBuilder
 };

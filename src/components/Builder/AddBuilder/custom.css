@@ -1,0 +1,17 @@
+.react-form-builder-preview {
+    min-height: 1125px !important;
+}
+
+.form-place-holder {
+    height: 1085px;
+}
+
+.react-form-builder .react-form-builder-toolbar {
+    margin-top: 0;
+}
+
+.app_header {
+    margin-bottom: 50px;
+    margin-top: 20px;
+    height: 40px;
+}

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Router,Switch, Route, Link, Redirect } from "react-router-dom";
+import { Router, Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import AddBuilder from "./Builder/AddBuilder/Add";
 import { history } from "../helpers/history";
 import { clearMessage } from "../actions/message";
 
@@ -28,11 +27,6 @@ const Home = () => {
             <span>Add Builder</span>
           </button>
         </Link>
-        <div className="container mt-3">
-          <Switch>
-            <Route exact path="/form-builder/add-builder" component={AddBuilder} />
-          </Switch>
-          </div>
       </div>
     </Router>
   );

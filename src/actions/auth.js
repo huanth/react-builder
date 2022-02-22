@@ -5,6 +5,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   SET_MESSAGE,
+  GET_DATA_FORM_BUILDER
 } from "./types";
 
 import AuthService from "../services/auth.service";
@@ -84,3 +85,34 @@ export const logout = () => (dispatch) => {
     type: LOGOUT,
   });
 };
+
+export const saveFormBuilder = formData => (dispatch) => {
+  return AuthService.saveFormBuilder(formData).then(
+    (response) => {
+      dispatch({
+        type: GET_DATA_FORM_BUILDER,
+        payload: response.data,
+      })
+      return Promise.resolve();
+    },
+    (error) => {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: LOGIN_FAIL,
+      });
+
+      dispatch({
+        type: SET_MESSAGE,
+        payload: message,
+      });
+
+      return Promise.reject();
+    }
+  )
+} 

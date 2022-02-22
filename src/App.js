@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import AddBuilder from "./components/Builder/AddBuilder/Add";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -17,6 +18,7 @@ import { history } from "./helpers/history";
 
 // import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
+
 
 const App = () => {
 
@@ -95,6 +97,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/form-builder/add-builder" component={AddBuilder} />
           </Switch>
         </div>
 
