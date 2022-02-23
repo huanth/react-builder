@@ -20,14 +20,16 @@ const Home = () => {
 
   return (
     <Router history={history}>
-      <div className="container">
-        <h1>Home</h1>
-        <Link to={"/form-builder/add-builder"} className="nav-link">
-          <button className="btn btn-primary btn-block">
-            <span>Add Builder</span>
-          </button>
-        </Link>
-      </div>
+      <>
+        <div className="container">
+          <h1>Home</h1>
+          <Link to={"/form-builder/add-builder"} className="nav-link">
+            <button className="btn btn-primary btn-block">
+              <span>Add Builder</span>
+            </button>
+          </Link>
+        </div>
+      </>
     </Router>
   );
 };

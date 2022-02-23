@@ -1,6 +1,16 @@
 import { GET_DATA_FORM_BUILDER } from "./types";
 
-export const getData = (data) => ({
-  type: GET_DATA_FORM_BUILDER,
-  payload: data,
-});
+import AuthService from "../services/auth.service";
+
+
+export const getData = (data) => (dispatch) => {
+  return AuthService.saveFormBuilder(data).then(
+    (response) => {
+      dispatch({
+        type: GET_DATA_FORM_BUILDER,
+        payload: data
+      });
+      return Promise.resolve();
+    },
+  );
+};

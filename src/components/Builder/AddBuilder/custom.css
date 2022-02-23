@@ -15,3 +15,20 @@
     margin-top: 20px;
     height: 40px;
 }
+
+.form-builder-name {
+    display: flex;
+    align-items: center;
+}
+
+input#form_builder_name {
+    width: 100%;
+    margin-left: 20px;
+    max-width: 69%;
+    border: none !important;
+    border-bottom: 1px solid #000 !important;
+}
+
+input#form_builder_name:focus-visible {
+    outline: none !important
+}

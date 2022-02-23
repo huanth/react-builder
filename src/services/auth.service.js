@@ -35,10 +35,7 @@ const logout = () => {
 
 const saveFormBuilder = async (data) => {
   const response = await axios.post("https://react-form-builder-2022-default-rtdb.asia-southeast1.firebasedatabase.app/form_builder.json", {
-      data: data,
-      headers: {
-          'Content-type': 'application/json'
-      }
+      data: data
     });
   return response.data;
 };
