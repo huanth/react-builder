@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ReactFormBuilder, ReactFormGenerator } from 'react-form-builder2';
 import 'react-form-builder2/dist/app.css';
 import { useDispatch, useSelector } from 'react-redux';
+import {useLocation, Redirect} from "react-router-dom"
 import { getData } from '../../../actions/form';
 import './custom.css'
 
@@ -13,32 +14,37 @@ const Add = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   return formDataName
-  // }
+  const search = useLocation().search;
+  const userId = new URLSearchParams(search).get('userId');
+
+  const { user: currentUser } = useSelector((state) => state.auth);
+  if (!currentUser) {
+    return <Redirect to="/login" />;
+  }
+  else{
+    // const userId = currentUser._id;
+  }
 
   const changeNameBuilder = (e) => {
     setFormDataName(e.target.value);
     setFormData({
       ...formData,
-      form_data_name: e.target.value
+      form_data_name: e.target.value,
+      form_data_user_id: userId
     });
   };
-  
- 
 
   const onPostData = (data) => {
     const inputNameForm = document.getElementById('form_builder_name').value;
-    console.log('formDataName', inputNameForm)
     setFormData({
       ...formData,
       form_data: data.task_data,
-      form_data_name: inputNameForm
+      form_data_name: inputNameForm,
+      form_data_user_id: userId
     });
   };
 
   const saveDataForm = () => {
-
     if(formDataName === undefined && formDataName === ''){
       console.log('Form name is undefined')
       return;

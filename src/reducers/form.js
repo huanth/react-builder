@@ -1,4 +1,4 @@
-import { GET_DATA_FORM_BUILDER } from "../actions/types";
+import { GET_DATA_FORM_BUILDER, GET_DATA_FORM_BUILDER_API } from "../actions/types";
 
 const initialState = {};
 
@@ -12,6 +12,11 @@ export default function (state = initialState, action) {
       return { 
         ...state, 
         data: payload.data 
+      };
+    case GET_DATA_FORM_BUILDER_API:
+      return {
+        ...state,
+        data: payload.data
       };
     default:
       return state;

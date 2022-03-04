@@ -40,9 +40,15 @@ const saveFormBuilder = async (data) => {
   return response.data;
 };
 
+const getListFormData = async (data) => {
+  const response = await axios.get("https://react-form-builder-2022-default-rtdb.asia-southeast1.firebasedatabase.app/form_builder.json");
+  return response.data;
+};
+
 export default {
   register,
   login,
   logout,
-  saveFormBuilder
+  saveFormBuilder,
+  getListFormData
 };
